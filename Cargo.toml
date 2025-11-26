@@ -40,6 +40,7 @@ axdriver = { path = "arceos/modules/axdriver" }
 axfs-ng = { path = "arceos/modules/axfs-ng" }
 axhal = { path = "arceos/modules/axhal", features = ["uspace"] }
 axinput = { path = "arceos/modules/axinput" }
+axipi = { path = "arceos/modules/axipi" }
 axlog = { path = "arceos/modules/axlog" }
 axmm = { path = "arceos/modules/axmm" }
 axnet = { path = "arceos/modules/axnet" }
@@ -107,6 +108,7 @@ qemu = [
     "axfeat/vsock",
     "starry-api/vsock",
 
+    "axfeat/watchdog",
     "axfeat/defplat",
 
     # auxilary features
@@ -172,17 +174,21 @@ optional = true
 features = ["irq", "fp-simd", "smp"] 
 
 [patch.crates-io]
-axcpu = { git = "https://github.com/kylin-x-kernel/axcpu.git",branch="watchdog" }
+# axcpu = { git = "https://github.com/kylin-x-kernel/axcpu.git",branch="watchdog" }
+axcpu = { path = "local_crates/axcpu" }
 axerrno = { git = "https://github.com/Starry-OS/axerrno.git", rev = "f1e2bca" }
 axfs-ng-vfs = { git = "https://github.com/Starry-OS/axfs-ng-vfs.git", rev = "d6f470f" }
 axio = { git = "https://github.com/Starry-OS/axio.git", rev = "ebb0c6b" }
-axplat = { git = "https://github.com/kylin-x-kernel/axplat_crates.git", branch = "main"}
+axplat = { path = "/data/usershare/code/StarryOS/local_crates/axplat_crates/axplat"}
 axplat-x86-pc = { git = "https://github.com/kylin-x-kernel/axplat_crates.git", branch = "main" }
-axplat-aarch64-qemu-virt = { git = "https://github.com/kylin-x-kernel/axplat_crates.git", branch = "watchdog"}
-axplat-aarch64-peripherals =  { git = "https://github.com/kylin-x-kernel/axplat_crates.git", branch = "watchdog"}
-axplat-riscv64-qemu-virt = { git = "https://github.com/kylin-x-kernel/axplat_crates.git", branch="main"}
-axplat-loongarch64-qemu-virt = { git = "https://github.com/kylin-x-kernel/axplat_crates.git"}
-axwatchdog = { git = "https://github.com/kylin-x-kernel/axwatchdog.git", branch = "main"}
+# axplat-aarch64-qemu-virt = { git = "https://github.com/kylin-x-kernel/axplat_crates.git", branch = "watchdog" }
+axplat-aarch64-qemu-virt = { path = "local_crates/axplat_crates/platforms/axplat-aarch64-qemu-virt" }
+# axplat-aarch64-peripherals =  { git = "https://github.com/kylin-x-kernel/axplat_crates.git", branch = "watchdog" }
+axplat-aarch64-peripherals = { path = "local_crates/axplat_crates/platforms/axplat-aarch64-peripherals" }
+axplat-riscv64-qemu-virt = { git = "https://github.com/kylin-x-kernel/axplat_crates.git", branch="main" }
+axplat-loongarch64-qemu-virt = { git = "https://github.com/kylin-x-kernel/axplat_crates.git" }
+# axwatchdog = { git = "https://github.com/kylin-x-kernel/axwatchdog.git", branch = "main" }
+axwatchdog = { path = "local_crates/axwatchdog" }
 page_table_entry = { git = "https://github.com/Starry-OS/page_table_multiarch.git", rev = "9df46c8" }
 page_table_multiarch = { git = "https://github.com/Starry-OS/page_table_multiarch.git", rev = "9df46c8" }
 starry-process = { git = "https://github.com/Starry-OS/starry-process.git", rev = "6327455" }

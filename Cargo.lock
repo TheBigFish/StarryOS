@@ -243,6 +243,7 @@ version = "0.2.2"
 dependencies = [
  "aarch64-cpu",
  "axbacktrace",
+ "axplat",
  "cfg-if",
  "lazyinit",
  "linkme",
@@ -381,6 +382,7 @@ version = "0.2.0"
 dependencies = [
  "axalloc",
  "axbacktrace",
+ "axcpu",
  "axdisplay",
  "axdriver",
  "axfs-ng",
@@ -556,7 +558,6 @@ dependencies = [
 [[package]]
 name = "axplat"
 version = "0.2.0"
-source = "git+https://github.com/kylin-x-kernel/axplat_crates.git?branch=main#9958005ea2a8a32ef25f0e9ba0c87c2c60e73b31"
 dependencies = [
  "axplat-macros",
  "bitflags 2.10.0",
@@ -734,7 +735,6 @@ dependencies = [
  "axmm",
  "axnet",
  "axplat",
- "axplat-aarch64-peripherals",
  "axtask",
  "axwatchdog",
  "chrono",
@@ -793,10 +793,9 @@ dependencies = [
  "axconfig",
  "axcpu",
  "axipi",
+ "axlog",
  "axplat",
- "axplat-aarch64-peripherals",
  "lazy_static",
- "log",
  "spin 0.10.0",
 ]
 
